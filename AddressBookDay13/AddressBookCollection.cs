@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace AddressBookDay13
@@ -8,10 +11,10 @@ namespace AddressBookDay13
     public class Program
     {
         Validation validation = new Validation();
-         List<ContactDetails> contactDetailsList;
+        List<ContactDetails> contactDetailsList;
         private Dictionary<string, ContactDetails> contactDetailsMap;
         private Dictionary<string, Dictionary<string, ContactDetails>> multipleAddressBookMap;
-        private object zip;
+
 
         public Program()
         {
@@ -27,12 +30,12 @@ namespace AddressBookDay13
             string firstName = Console.ReadLine();
             validation.FirstName(firstName);
             personEntered.firstName = firstName;
-           
+
             Console.WriteLine("Enter Last name");
             string lastName = Console.ReadLine();
             validation.LastName(lastName);
             personEntered.lastName = lastName;
-           
+
             if (contactDetailsList.Find(i => personEntered.Equals(i)) != null)
             {
                 Console.WriteLine("Person already Exists, enter new person!");
@@ -40,7 +43,7 @@ namespace AddressBookDay13
             }
             Console.WriteLine("Enter Address");
             string address = Console.ReadLine();
-             validation.Address(address);
+            validation.Address(address);
             personEntered.address = address;
             Console.WriteLine("Enter City");
             personEntered.city = Console.ReadLine();
@@ -61,11 +64,11 @@ namespace AddressBookDay13
             validation.EmailAddress(email);
             personEntered.email = email;
             contactDetailsList.Add(personEntered);
-            
+
         }
-        public List<ContactDetails> AddDetails( string firstName, string LastName, string address, string city, string state, string v, int zip, long phoneNumber, string email)
+        public List<ContactDetails> AddDetails(string firstName, string LastName, string address, string city, string state, string v, int zip, long phoneNumber, string email)
         {
-            ContactDetails contactDetails = new ContactDetails( firstName, LastName, address, city, state, zip, phoneNumber, email);
+            ContactDetails contactDetails = new ContactDetails(firstName, LastName, address, city, state, zip, phoneNumber, email);
             contactDetailsList.Add(contactDetails);
 
             return contactDetailsList;
@@ -132,73 +135,7 @@ namespace AddressBookDay13
                 Console.WriteLine(book.toString());
             }
         }
-        public void EditDetails( string firstName, string LastName, string address, string city, string state, int zip, long phoneNumber, String email)
-        {
-            ContactDetails contactDetails = new ContactDetails( firstName, LastName, address, city, state, zip, phoneNumber, email);
-            Console.WriteLine(" Select index: ");
-            int index = Convert.ToInt32(Console.ReadLine());
-            contactDetailsList[index] = contactDetails;
-            contactDetailsMap[firstName] = contactDetails;
-        }
-        public void UserInputEditDetails()
-        {
-            Console.WriteLine(" Number of person want to edit: ");
-            int noOfEdits = Convert.ToInt32(Console.ReadLine());
-            for (int i = 0; i < noOfEdits; i++)
-            {
-                Console.WriteLine(" Enter details");
-                ContactDetails personEntered = new ContactDetails();
-                Console.WriteLine("Enter First name");
-                string firstName = Console.ReadLine();
-                validation.FirstName(firstName);
-                personEntered.firstName = firstName;
 
-                Console.WriteLine("Enter Last name");
-                string lastName = Console.ReadLine();
-                validation.LastName(lastName);
-                personEntered.lastName = lastName;
-
-                if (contactDetailsList.Find(i => personEntered.Equals(i)) != null)
-                {
-                    Console.WriteLine("Person already Exists, enter new person!");
-                    return;
-                }
-                Console.WriteLine("Enter Address");
-                string address = Console.ReadLine();
-                validation.Address(address);
-                personEntered.address = address;
-                Console.WriteLine("Enter City");
-                string city = Console.ReadLine();
-                personEntered.city = city;
-                Console.WriteLine("Enter State");
-                string state = Console.ReadLine();
-                personEntered.state = state;
-                Console.WriteLine("Enter Zip");
-                int zip = Convert.ToInt32(Console.ReadLine());
-                string zipString = zip.ToString();
-                validation.Zip(zipString);
-                personEntered.zip = zip;
-                Console.WriteLine("Enter phoneNumber");
-                long phoneNumber = Convert.ToInt64(Console.ReadLine());
-                string phoneNumberString = phoneNumber.ToString();
-                validation.MobileNumber(phoneNumberString);
-                personEntered.phoneNumber = phoneNumber;
-                Console.WriteLine("Enter Email");
-                string email = Console.ReadLine();
-                validation.EmailAddress(email);
-                personEntered.email = email;
-
-                EditDetails( firstName, lastName, address, city, state, zip, phoneNumber, email);
-            }
-        }
-        // delete the detail 
-        public void DeleteDetails(string firstName)
-        {
-            Console.WriteLine("Enter index");
-            int index = Convert.ToInt32(Console.ReadLine());
-            contactDetailsList.RemoveAt(index);
-            contactDetailsMap.Remove(firstName);
-        }
 
 
     }
