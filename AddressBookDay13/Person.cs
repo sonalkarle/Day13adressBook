@@ -14,13 +14,13 @@ namespace AddressBookDay13
         public int zip;
         public long phoneNumber;
         public string email;
-        public string addressBook;
+        
 
         public ContactDetails()
         {
         }
 
-        public ContactDetails(string addressBook, string firstName, string lastName, string address, string city, string state, int zip, long phoneNumber, string email)
+        public ContactDetails( string firstName, string lastName, string address, string city, string state, int zip, long phoneNumber, string email)
         {
             this.firstName = firstName;
             this.lastName = lastName;
@@ -30,11 +30,11 @@ namespace AddressBookDay13
             this.zip = zip;
             this.phoneNumber = phoneNumber;
             this.email = email;
-            this.addressBook = addressBook;
+            
         }
         public string toString()
         {
-            return "Address Book: " + addressBook + "\n"
+            return "Address Book: " 
                                    + "" + " Details of " + firstName + " " + lastName + " are: " + " Address: " + address + "  City: " + city + "\n"
                                     + "                               " + " State: " + state + "  Zip: " + zip + "\n"
                                     + "                               " + " PhoneNumber: " + phoneNumber + "\n"

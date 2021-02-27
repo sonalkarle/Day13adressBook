@@ -69,7 +69,7 @@ namespace AddressBookDay13
         /// <summary>
         /// Address Custom Exception
         /// </summary>
-        /// <param name="patternLastName"></param>
+        /// <param name="patternAddress"></param>
         /// <returns></returns>
         public string Address(string patternAddress)
         {
@@ -95,7 +95,7 @@ namespace AddressBookDay13
         /// <summary>
         /// Zip Custom Exception
         /// </summary>
-        /// <param name="patternLastName"></param>
+        /// <param name="patternzip"></param>
         /// <returns></returns>
         public string Zip(string patternZip)
         {
