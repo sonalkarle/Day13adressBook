@@ -9,6 +9,7 @@ namespace AddressBookDay13
 
             Console.WriteLine(" Welcome to Address Book System ");
             Program studentBook = new Program();
+            
 
 
             //Address book created  for student
@@ -17,13 +18,28 @@ namespace AddressBookDay13
             studentBook.AddDetails("Student", "Priya", " Deshmukh ", " Gokhale nagar ", "Pune", "Maharashtra", 400017, 88060214103, " deshmukh@gmail.com ");
             studentBook.AddDetails("Student", "Sachin", " Gore ", " Swami chowk ", "Banglore", "Karnataka", 400517, 8875811103, " gore@gmail.com ");
             studentBook.AddDetails("Student", "Sheetal", " Patel ", " Gandhi nagar ", "Ahmdabad", "Gujrat", 400017, 8806154783, " pawar@gmail.com ");
-            Console.WriteLine(" Enter stored Book Name : ");
-            string addressBook = Console.ReadLine();
-            studentBook.AddressBook(addressBook);
-            studentBook.ComputeDetails();
 
-            studentBook.Search();
-            studentBook.Count();
+
+
+
+            
+            Console.WriteLine(" Enter Book name : ");
+            string addressBook = Console.ReadLine();
+          
+                studentBook.AddressBook(addressBook);
+                addressBook = Console.ReadLine();
+                studentBook.AddressBook(addressBook);
+                studentBook.ComputeDetails();
+                studentBook.ContactlistEntry();
+                studentBook.Search();
+                studentBook.Count();
+                
+
+
+            
+          
+
+
 
 
 
